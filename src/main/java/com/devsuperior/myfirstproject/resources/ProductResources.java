@@ -22,13 +22,13 @@ public class ProductResources {
 
     @GetMapping
     public ResponseEntity<List<Product>> finaAll(){
-        List<Product> list = productRepository.findall();
+        List<Product> list = productRepository.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Product> findById(@PathVariable Long id) {
-        Product pro = productRepository.findById(id);
+        Product pro = productRepository.findById(id).get();
         return ResponseEntity.ok().body(pro);
     }
 
